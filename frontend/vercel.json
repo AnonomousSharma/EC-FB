@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/next",  // Change this to @vercel/react for React projects or your framework if it's different
+      "config": {
+        "distDir": "build"  // This should be the output folder for your frontend build
+      }
+    },
+    {
+      "src": "backend/package.json",
+      "use": "@vercel/node"  // Use @vercel/node if it's a Node.js backend
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/api/$1"  // Points to backend's API folder or entry file
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/$1"  // Points to frontend folder for all non-API routes
+    }
+  ]
+}
