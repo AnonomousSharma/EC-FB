@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "start": "node index.js"  // Replace with your backend entry file
+  }
+}
+
+{
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
